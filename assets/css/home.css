@@ -1,0 +1,132 @@
+/* ============================================================
+   home.css — the site proper: revealed once the intro's OK is pressed.
+   Loaded after base.css and intro.css; it overrides both on purpose.
+   ============================================================ */
+
+/* the intro chrome steps aside once the home view is showing */
+body.home{overflow:auto;height:auto}
+body.home .stage,body.home .landing,body.home .ptr{display:none}
+
+/* ---------- layout, typography, sections ---------- */
+.home-wrap{display:none;--line:#3A3A3A;--head:#EFEFEF;--body:#C9C9C9;--sans:"IBM Plex Sans","Helvetica Neue",Helvetica,Arial,sans-serif}
+body.home .home-wrap{display:block;animation:homein .7s ease both}
+@keyframes homein{from{opacity:0}to{opacity:1}}
+.home-wrap a{color:var(--beige);text-decoration:underline;text-decoration-color:#5A5650;text-underline-offset:4px;text-decoration-thickness:1px}
+.home-wrap a:hover{text-decoration-color:var(--beige)}
+.home-wrap a:focus-visible,.home-wrap button:focus-visible,.home-wrap summary:focus-visible{outline:1px solid var(--beige);outline-offset:3px}
+.top{position:sticky;top:0;z-index:5;background:rgba(42,42,42,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.top-in{max-width:980px;margin:0 auto;padding:0 32px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:24px;font-size:12.5px}
+.top-in .me{color:var(--head);text-decoration:none;letter-spacing:.02em}
+.top-in nav{display:flex;gap:22px;overflow-x:auto}
+.top-in nav a{color:var(--dim);text-decoration:none;white-space:nowrap;padding:8px 0}
+.top-in nav a:hover{color:var(--head)}
+.home-main{max-width:980px;margin:0 auto;padding:72px 32px 40px}
+
+.lead{font-family:var(--sans);font-size:19px;line-height:1.6;color:var(--head);margin:0 0 16px;max-width:60ch}
+.body-p{font-family:var(--sans);font-size:16px;line-height:1.7;color:var(--body);margin:0 0 28px;max-width:62ch}
+.contact{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 24px;font-size:13px}
+.contact .plain{color:var(--dim)}
+
+.sec{display:grid;grid-template-columns:160px minmax(0,1fr);gap:40px;padding:40px 0;border-top:1px solid var(--line)}
+.sec h2{font-family:var(--mono);font-weight:400;font-size:13px;color:var(--dim);margin:4px 0 0;letter-spacing:.04em}
+.sec h2::before{content:"/ ";color:#5A5A5A}
+
+.news{list-style:none;margin:0;padding:0}
+.news li{display:grid;grid-template-columns:96px 1fr;gap:20px;padding:9px 0}
+.news .d{font-size:12.5px;color:var(--dim);padding-top:3px;white-space:nowrap}
+.news .t{font-family:var(--sans);font-size:15.5px;line-height:1.6;color:var(--body)}
+.news li.more{display:none}
+.news.open li.more{display:grid}
+.tog{margin-top:10px;background:none;border:0;padding:6px 0;font:inherit;font-size:12.5px;color:var(--dim);cursor:pointer}
+.tog:hover{color:var(--head)}
+
+.item{padding:0 0 34px}
+.item:last-child{padding-bottom:0}
+.item-h{display:flex;justify-content:space-between;align-items:baseline;gap:20px}
+.item h3{font-family:var(--sans);font-weight:500;font-size:17.5px;line-height:1.4;color:var(--head);margin:0}
+.st{font-size:11.5px;color:var(--dim);white-space:nowrap;flex-shrink:0}
+.st.pub{color:var(--beige)}
+.st.pub::before{content:"";display:inline-block;width:6px;height:6px;background:var(--beige);margin-right:7px;vertical-align:1px}
+.st.ong::before{content:"";display:inline-block;width:6px;height:6px;border:1px solid var(--dim);margin-right:7px;vertical-align:1px}
+.by{font-family:var(--sans);font-size:14.5px;color:var(--dim);margin:6px 0 0;line-height:1.55}
+.by .u{color:var(--head);text-decoration:underline;text-underline-offset:3px;text-decoration-color:#6A6A6A}
+.by i{font-style:italic}
+.ab{font-family:var(--sans);font-size:15.5px;line-height:1.7;color:var(--body);margin:12px 0 0;max-width:66ch}
+.tags{font-size:12px;color:var(--dim);margin:12px 0 0}
+
+.xrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 24px;padding:0 0 28px}
+.xrow:last-child{padding-bottom:0}
+.xrow .org{font-family:var(--sans);font-weight:500;font-size:16.5px;color:var(--head)}
+.xrow .when{font-size:12.5px;color:var(--dim);white-space:nowrap;padding-top:3px;text-align:right}
+.xrow .role{grid-column:1/-1;font-family:var(--sans);font-size:14.5px;color:var(--dim)}
+.xrow ul{grid-column:1/-1;margin:8px 0 0;padding:0;list-style:none}
+.xrow li{font-family:var(--sans);font-size:15px;line-height:1.65;color:var(--body);padding-left:18px;position:relative;margin-top:4px;max-width:68ch}
+.xrow li::before{content:"–";position:absolute;left:0;color:#6A6A6A}
+
+.skills{margin:0;display:grid;grid-template-columns:150px 1fr;gap:14px 24px}
+.skills dt{font-size:12.5px;color:var(--dim);padding-top:3px}
+.skills dd{margin:0;font-family:var(--sans);font-size:15px;line-height:1.65;color:var(--body)}
+
+.foot{max-width:980px;margin:0 auto;padding:28px 32px 48px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--dim)}
+.foot button{background:none;border:0;padding:0;font:inherit;color:var(--dim);cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.foot button:hover{color:var(--head)}
+
+@media (max-width:760px){
+  .top-in{padding:0 20px}
+  .top-in nav{gap:16px}
+  .top-in nav a.hide-s{display:none}
+  .home-main{padding:40px 20px 24px}
+  .sec{grid-template-columns:1fr;gap:18px;padding:32px 0}
+  .news li{grid-template-columns:1fr;gap:0;padding:8px 0}
+  .skills{grid-template-columns:1fr;gap:4px}
+  .skills dd{margin-bottom:12px}
+  .item-h{flex-direction:column;gap:6px}
+}
+.home-wrap{--display:"Bebas Neue","Oswald","Arial Narrow",Impact,sans-serif}
+/* top bar: overlays the cover, turns solid on scroll */
+.top{position:fixed;left:0;right:0;background:rgba(34,34,34,.55);border-bottom:1px solid transparent;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .3s,border-color .3s}
+
+/* ---------- editorial cover layer (intentionally overrides the above) ---------- */
+.top.solid{background:rgba(42,42,42,.94);border-bottom-color:var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.top-in{max-width:none;padding:0 40px;height:64px}
+.top-in .me{white-space:nowrap;font-family:var(--display);font-size:26px;letter-spacing:.03em;color:var(--beige);text-transform:uppercase}
+.top-in nav{gap:6px}
+.top-in nav a{font-family:var(--display);font-size:17px;letter-spacing:.1em;text-transform:uppercase;color:var(--text);padding:6px 12px;border:1px solid transparent}
+.top-in nav a:hover{color:var(--beige)}
+.top-in nav a.on{border-color:var(--beige);color:var(--beige)}
+
+/* cover */
+.cover{position:relative;height:100svh;min-height:560px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.82fr);overflow:hidden;border-bottom:1px solid var(--line)}
+.cover-img{grid-column:2;position:relative;background:#1E1E1E}
+.cover-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:grayscale(1) contrast(1.08) brightness(.78);transition:filter 1s ease}
+.cover-img:hover img{filter:grayscale(.15) contrast(1.02) brightness(.92)}
+.cover-text{grid-column:1;grid-row:1;align-self:end;padding:0 40px 14vh;position:relative;z-index:1}
+.cover-name{font-family:var(--display);font-weight:400;font-size:clamp(72px,11.5vw,188px);line-height:.86;letter-spacing:.005em;text-transform:uppercase;color:var(--beige);margin:0 0 22px;white-space:nowrap}
+.cover-name .cur{display:inline-block;width:.32em;height:.72em;background:var(--beige);margin-left:.08em;vertical-align:.02em;animation:blink 1.06s steps(1) infinite}
+.cover-sub{font-family:var(--display);font-size:clamp(20px,2.1vw,30px);line-height:1.12;letter-spacing:.06em;text-transform:uppercase;color:var(--text);margin:0}
+.cover-down{position:absolute;left:40px;bottom:28px;display:inline-flex;gap:8px;align-items:center;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-decoration:none!important;padding:8px 0}
+.cover-down:hover{color:var(--beige)}
+.cover-down svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.6}
+
+/* section heads */
+.sec h2{font-family:var(--display);font-size:30px;letter-spacing:.05em;color:var(--beige);margin:0;line-height:1;text-transform:uppercase}
+.sec h2::before{content:none}
+.home-main{padding-top:24px}
+.pfig{margin:16px 0 0;max-width:680px}
+.pfig img{display:block;width:100%;background:#fff;filter:grayscale(.35) brightness(.9);border:1px solid var(--line);transition:filter .4s}
+.pfig:hover img{filter:none}
+.pfig figcaption{font-size:11.5px;color:var(--dim);margin-top:8px}
+
+@media (max-width:760px){
+  .top-in{padding:0 18px;height:56px}
+  .top-in .me{font-size:22px}
+  .top-in nav a{font-size:15px;padding:5px 7px}
+  .top-in nav a[data-s="hero"],.top-in nav a[data-s="about"]{display:none}
+  .cover{grid-template-columns:1fr;grid-template-rows:1fr auto;height:auto;min-height:100svh}
+  .cover-img{grid-column:1;grid-row:1;min-height:58svh}
+  .cover-text{grid-column:1;grid-row:2;padding:28px 20px 84px}
+  .cover-name{font-size:clamp(56px,17vw,96px);white-space:normal}
+  .top{background:rgba(42,42,42,.94)}
+  .cover-down{left:20px}
+}
+@media (prefers-reduced-motion:reduce){body.home .home-wrap{animation:none}.cover-name .cur{animation:none}}

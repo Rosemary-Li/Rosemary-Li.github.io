@@ -1,0 +1,65 @@
+/* ============================================================
+   intro.css — the opening sequence: particle landing, the retro
+   "Input Window Properties" dialog, and the fake pointer.
+   Everything here is hidden once the home view takes over.
+   ============================================================ */
+
+.stage{height:100%;display:flex;align-items:center;justify-content:center;padding:24px}
+
+/* the window */
+.win{width:min(680px,100%);background:var(--win);
+  border:1px solid #111;
+  box-shadow:inset 1px 1px 0 var(--win-hi), inset -1px -1px 0 var(--win-lo), 0 24px 60px rgba(0,0,0,.35);
+  opacity:0;transform:translateY(6px);transition:opacity .5s ease, transform .5s ease}
+.win.on{opacity:1;transform:none}
+.win.closing{opacity:0;transform:scale(.96);transition:opacity .35s ease, transform .35s ease}
+.bar{height:34px;background:var(--title);color:var(--title-ink);display:flex;align-items:center;justify-content:center;position:relative;font-size:13px;letter-spacing:.02em;user-select:none}
+.bar .x{position:absolute;right:6px;top:5px;width:40px;height:24px;border:1px solid rgba(0,0,0,.35);background:#8C3B34;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;line-height:1}
+.body{padding:22px 22px 18px}
+fieldset{margin:0;padding:18px 16px 16px;border:1px solid var(--win-lo);box-shadow:1px 1px 0 var(--win-hi), inset 1px 1px 0 var(--win-hi)}
+legend{padding:0 6px;font-size:12.5px;color:var(--text)}
+
+.field{position:relative;background:var(--field);min-height:calc(3 * 1.55em + 28px);padding:14px 16px;font-size:clamp(17px,3.1vw,26px);line-height:1.55;color:var(--type);white-space:pre-wrap;word-break:break-word;
+  border:1px solid var(--win-lo);box-shadow:inset 1px 1px 0 #0E0E0E, 0 0 0 1px transparent;transition:box-shadow .15s}
+.field.focus{box-shadow:inset 1px 1px 0 #0E0E0E, 0 0 0 1px var(--title)}
+.caret{display:inline-block;width:.58em;height:1.12em;vertical-align:-.2em;background:var(--type);margin-left:1px}
+.caret.blink{animation:blink 1.06s steps(1) infinite}
+.meta{display:flex;justify-content:space-between;gap:12px;margin-top:10px;font-size:12px;color:var(--dim)}
+
+.row{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:18px}
+.status{font-size:12px;color:var(--dim);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.status b{color:var(--text);font-weight:500}
+.btns{display:flex;gap:10px;flex-shrink:0}
+.btn{font:inherit;font-size:13px;min-width:92px;min-height:32px;padding:6px 14px;background:var(--win);color:var(--text);text-decoration:none;text-align:center;
+  border:1px solid #111;box-shadow:inset 1px 1px 0 var(--win-hi), inset -1px -1px 0 var(--win-lo);cursor:pointer}
+.btn.ok.ready{outline:1px dotted var(--dim);outline-offset:-5px}
+.btn.hover,.btn:hover{background:#424242}
+.btn.press,.btn:active{box-shadow:inset -1px -1px 0 var(--win-hi), inset 1px 1px 0 var(--win-lo)}
+.btn:focus-visible{outline:2px solid var(--title);outline-offset:2px}
+
+/* landing */
+.landing{position:fixed;inset:0;z-index:20;background:var(--bg);transition:opacity .6s ease}
+.landing.gone{opacity:0;pointer-events:none}
+.landing canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:crosshair}
+.enter{position:absolute;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);
+  font:inherit;font-size:12px;letter-spacing:.08em;color:var(--beige);opacity:.55;background:none;border:0;padding:12px 16px;cursor:pointer;white-space:nowrap}
+.enter:hover{opacity:1}
+.enter:focus-visible{outline:1px solid var(--beige);outline-offset:2px}
+.enter .c{animation:blink 1.06s steps(1) infinite}
+
+/* fake pointer */
+.ptr{position:fixed;left:0;top:0;width:22px;height:22px;pointer-events:none;z-index:10;opacity:0;transition:opacity .3s;will-change:transform}
+.ptr svg{position:absolute;left:0;top:0;width:22px;height:22px;overflow:visible}
+.ptr .beam{display:none;left:-6px;top:-11px}
+.ptr.ibeam .arrow{display:none}
+.ptr.ibeam .beam{display:block}
+.ptr.click .arrow{transform:scale(.88);transform-origin:0 0}
+
+
+@media (max-width:520px){
+  .body{padding:16px 14px 14px}
+  fieldset{padding:14px 10px 12px}
+  .meta span:last-child{display:none}
+  .row{flex-direction:column;align-items:stretch}
+  .btns{justify-content:flex-end}
+}

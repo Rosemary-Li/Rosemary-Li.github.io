@@ -1,0 +1,25 @@
+/* ============================================================
+   base.css — design tokens, reset, primitives used site-wide
+   ============================================================ */
+
+:root{
+  --bg:#2A2A2A;
+  --win:#383838; --win-hi:#555555; --win-lo:#1C1C1C;
+  --field:#1E1E1E; --text:#D6D6D6; --dim:#8A8A8A; --type:#EDEDED;
+  --title:#3E7482; --beige:#E9E1D2; --title-ink:#EAF3F5;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+/* This page is dark by design in both themes */
+:root[data-theme="light"],:root[data-theme="dark"]{--bg:#2A2A2A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2A2A2A}}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:var(--mono);-webkit-font-smoothing:antialiased;overflow:hidden}
+
+/* visually hidden, still read by screen readers */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+@keyframes blink{50%{opacity:0}}
