@@ -1,8 +1,8 @@
 /* ============================================================
    home.js — behaviour of the site proper (index.html only).
 
-   Handles the hand-off from the landing to the home view and back, the
-   sticky nav's solid/active states, and the News "show all" toggle.
+   Handles the hand-off from the landing to the home view and back and the
+   sticky table of contents' active state.
 
    RL.home.init(options) -> { show }
      options.onBackToIntro  called after the home view is torn down, so
@@ -16,7 +16,7 @@
       options = options || {};
       var onBackToIntro = options.onBackToIntro || function () { };
 
-      var topbar = document.getElementById('top'), navs = [].slice.call(document.querySelectorAll('.top-in nav a[data-s]'));
+      var navs = [].slice.call(document.querySelectorAll('.toc a[data-s]'));
 
       // ---------- landing -> home ----------
       function goHome() {
@@ -35,27 +35,23 @@
         onBackToIntro();
       }
 
-      // ---------- sticky nav: solid on scroll, section highlighting ----------
+      // ---------- table of contents: highlight the section in view ----------
       function spy() {
         if (!document.body.classList.contains('home')) return;
-        topbar.classList.toggle('solid', window.scrollY > 8);
         var cur = 'hero';
-        navs.forEach(function (a) { var el = document.getElementById(a.dataset.s); if (el && el.getBoundingClientRect().top <= 120) cur = a.dataset.s; });
+        navs.forEach(function (a) { var el = document.getElementById(a.dataset.s); if (el && el.getBoundingClientRect().top <= 90) cur = a.dataset.s; });
+        // the last section is shorter than the viewport, so its top never
+        // crosses the line: at the end of the page, highlight it anyway
+        if (navs.length && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) cur = navs[navs.length - 1].dataset.s;
         navs.forEach(function (a) { a.classList.toggle('on', a.dataset.s === cur); });
       }
       window.addEventListener('scroll', spy, { passive: true });
       window.addEventListener('resize', spy);
 
-      // ---------- News: show all / show less ----------
-      var tog = document.getElementById('newstog');
-      tog.addEventListener('click', function () {
-        var l = document.getElementById('newslist'), o = l.classList.toggle('open');
-        tog.setAttribute('aria-expanded', o); tog.textContent = o ? '– show less' : '+ show all 7';
-      });
-
-      // ---------- back to the intro: the name in the top-left, and the footer link ----------
-      ['tointro', 'rerun'].forEach(function (id) {
-        document.getElementById(id).addEventListener('click', function (e) { e.preventDefault(); goIntro(); });
+      // ---------- back to the intro: the footer link ----------
+      ['rerun'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.addEventListener('click', function (e) { e.preventDefault(); goIntro(); });
       });
 
       return { show: goHome };

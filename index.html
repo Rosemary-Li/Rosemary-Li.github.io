@@ -22,27 +22,14 @@
 
 
 <div class="home-wrap" id="home">
-  <header class="top" id="top">
-    <div class="top-in">
-      <a class="me" id="tointro" href="./">Rosemary Li</a>
-      <nav aria-label="Sections">
-        <a href="#about" data-s="about">About</a>
-        <a href="#news" data-s="news">News</a>
-        <a href="#research" data-s="research">Research</a>
-        <a class="hide-s" href="#experience" data-s="experience">Experience</a>
-        <a class="hide-s" href="#education" data-s="education">Education</a>
-        <a class="hide-s" href="#projects" data-s="projects">Projects</a>
-      </nav>
-    </div>
-  </header>
+  <div class="page">
 
-  <main class="home-main">
     <section class="profile" id="hero">
       <img class="avatar" src="assets/img/portrait.jpg" alt="Portrait of Rosemary Li" width="160" height="160">
       <div class="profile-text">
         <h1>Rosemary Li</h1>
         <p class="affil">M.S. Computer and Information Science, <a href="https://www.columbia.edu/">Columbia University</a></p>
-        <p class="interests">LLM agent evaluation &middot; multi-agent systems &middot; human-computer interaction</p>
+        <p class="affil">B.S. Finance and Computing &amp; Data Science, <a href="https://www.stern.nyu.edu/">New York University Stern</a></p>
         <ul class="links">
           <li><a href="mailto:yl5848@columbia.edu">yl5848@columbia.edu</a></li>
           <li><a href="mailto:rosemary.liyanxi@gmail.com">rosemary.liyanxi@gmail.com</a></li>
@@ -52,126 +39,129 @@
       </div>
     </section>
 
-    <section class="sec" id="about">
-      <h2>About</h2>
-      <div>
-        <p class="lead">I&rsquo;m a researcher and engineer working on LLM agent evaluation, multi-agent systems, and human-computer interaction.</p>
-      </div>
-    </section>
+    <div class="cols">
+      <main class="home-main">
 
-    <section class="sec" id="news">
-      <h2>News</h2>
-      <div>
-        <ul class="news" id="newslist">
-          <li><span class="d">Aug 2026</span><span class="t">Paper on depression-indicative self-disclosure in YouTube comments accepted at WellComp @ UbiComp/ISWC 2026.</span></li>
-          <li><span class="d">Jul 2026</span><span class="t">Built CivicShield at ETHGlobal New York 2026: certified-trace agents for on-chain disaster relief.</span></li>
-          <li><span class="d">Jun 2026</span><span class="t">Placed 3rd at The City Hacks The State, NYC Tech Week 2026, with Student Signal Copilot.</span></li>
-          <li class="more"><span class="d">Jun 2026</span><span class="t">Launched Ghost.Reviews, a governable multi-agent equity research system with human approval gates.</span></li>
-          <li class="more"><span class="d">May 2026</span><span class="t">Started as an AI Engineer intern at MusicNBrain, building a real-time multimodal music tutor.</span></li>
-          <li class="more"><span class="d">May 2026</span><span class="t">Won 1st place with LA World Cup Journey, a full-stack match and itinerary planner.</span></li>
-          <li class="more"><span class="d">Apr 2026</span><span class="t">Placed 4th of 100+ at the Veris Enterprise Agent Jam with Signal2Action.</span></li>
+        <section class="sec" id="about">
+          <h2>About</h2>
+          <p class="lead">I am a graduate student at Columbia University and a research intern in the SEA Lab.</p>
+        </section>
+
+        <section class="sec" id="news">
+          <h2>News</h2>
+          <ul class="news">
+            <li><span class="d">Aug 2026</span><span class="t">Paper on depression-indicative self-disclosure in YouTube comments accepted at WellComp @ UbiComp/ISWC 2026.</span></li>
+            <li><span class="d">Jun 2026</span><span class="t">Placed 3rd at The City Hacks The State, NYC Tech Week 2026, with Student Signal Copilot.</span></li>
+            <li><span class="d">Jun 2026</span><span class="t">Launched Ghost.Reviews, a governable multi-agent equity research system with human approval gates.</span></li>
+            <li><span class="d">May 2026</span><span class="t">Won 1st place with LA World Cup Journey, a full-stack match and itinerary planner.</span></li>
+            <li><span class="d">Apr 2026</span><span class="t">Placed 4th of 100+ at the Veris Enterprise Agent Jam with Signal2Action.</span></li>
+          </ul>
+        </section>
+
+        <section class="sec" id="publications">
+          <h2>Publications</h2>
+          <article class="item">
+            <h3>A Triangulate-and-Audit Framework for Measuring Depression-Indicative Self-Disclosure in YouTube Comments</h3>
+            <p class="by"><span class="u">Rosemary Li</span>, Nuo Chen, Shenghan Gao, <a href="https://zhihanjiang.com/">Zhihan Jiang</a><br><i>WellComp Workshop at UbiComp/ISWC 2026</i> &middot; Accepted</p>
+            <p class="ab">We study how to measure depression-indicative self-disclosure in YouTube comments through a framework that combines multiple operationalizations, triangulation, and audit.</p>
+            <figure class="pfig"><img src="assets/img/triangulate-audit-framework.jpg" alt="The triangulate-and-audit framework: data and construct, multiple operationalizations, triangulation, audit, and insight"><figcaption>Fig. 1. The triangulate-and-audit framework.</figcaption></figure>
+          </article>
+        </section>
+
+        <section class="sec" id="research-experience">
+          <h2>Research Experience</h2>
+          <div class="xrow xrow-plain">
+            <div class="xbody">
+              <h3 class="xtitle">Columbia University &middot; SEA Lab</h3>
+              <p class="xorg">Research Intern &middot; September 2026&ndash;present</p>
+            </div>
+          </div>
+          <div class="xrow xrow-plain">
+            <div class="xbody">
+              <h3 class="xtitle">MusicNBrain</h3>
+              <p class="xorg">AI Engineer Intern, Real-Time Multimodal Music Tutor &middot; May&ndash;August 2026</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="sec" id="education">
+          <h2>Education</h2>
+          <div class="xrow">
+            <div class="when">Sep 2025 &ndash; Dec 2026</div>
+            <div class="xbody">
+              <h3 class="xtitle">M.S. in Computer and Information Science</h3>
+              <p class="xorg">Columbia University</p>
+              <p class="xdet">GPA 4.08. Machine learning, data engineering</p>
+            </div>
+          </div>
+          <div class="xrow">
+            <div class="when">Sep 2019 &ndash; May 2024</div>
+            <div class="xbody">
+              <h3 class="xtitle">B.S. in Finance and Computing &amp; Data Science, Minor in Mathematics</h3>
+              <p class="xorg">New York University, Stern School of Business</p>
+              <p class="xdet">Dean's List 2022&ndash;23</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="sec" id="projects">
+          <h2>Selected Projects</h2>
+          <article class="item">
+            <a class="cover-link" href="https://ghost-reviews-r5iy9ekn9-yl5848-7274s-projects.vercel.app/">
+              <img class="cover" src="assets/img/proj-ghost-reviews.jpg" alt="Ghost Reviews live site &mdash; an aerial view of Lower Manhattan at dusk behind the project name" width="1800" height="692" loading="lazy">
+            </a>
+            <h3>Ghost.Reviews</h3>
+            <p class="sub">Multi-agent equity research with human oversight &middot; June 2026</p>
+            <p class="lk"><a href="https://ghost-reviews-r5iy9ekn9-yl5848-7274s-projects.vercel.app/">Demo</a></p>
+          </article>
+          <article class="item">
+            <a class="cover-link" href="https://civic-shield-ai.vercel.app/">
+              <img class="cover" src="assets/img/proj-civicshield.jpg" alt="CivicShield live site &mdash; a hurricane seen from orbit behind the project name" width="1800" height="692" loading="lazy">
+            </a>
+            <h3>CivicShield</h3>
+            <p class="sub">Policy-constrained agents for disaster relief &middot; ETHGlobal New York, July 2026</p>
+            <p class="lk"><a href="https://civic-shield-ai.vercel.app/">Demo</a></p>
+          </article>
+          <article class="item">
+            <a class="cover-link" href="https://github.com/lvelf/Signal2Action">
+              <img class="cover" src="assets/img/proj-signal2action.jpg" alt="Signal2Action repository &mdash; the project name over a dark ground" width="1800" height="692" loading="lazy">
+            </a>
+            <h3>Signal2Action</h3>
+            <p class="sub">Agents for structured consulting workflows &middot; April 2026</p>
+            <p class="ab">Placed 4th out of 100+ teams at Veris Agent Jam.</p>
+            <p class="lk"><a href="https://github.com/lvelf/Signal2Action">Code</a></p>
+          </article>
+          <article class="item">
+            <a class="cover-link" href="https://la-world-cup-journey.vercel.app">
+              <img class="cover" src="assets/img/proj-la-world-cup.jpg" alt="LA World Cup Journey live site &mdash; the headline &ldquo;The beautiful game comes to Hollywood&rdquo; over a pitch-side photograph" width="1800" height="692" loading="lazy">
+            </a>
+            <h3>LA World Cup Journey</h3>
+            <p class="sub">Full-stack event and itinerary platform &middot; May 2026</p>
+            <p class="lk"><a href="https://la-world-cup-journey.vercel.app">Demo</a></p>
+          </article>
+        </section>
+
+      </main>
+
+      <nav class="toc" id="toc" aria-label="Sections">
+        <p class="toc-h">Contents</p>
+        <ul>
+          <li><a href="#about" data-s="about">About</a></li>
+          <li><a href="#news" data-s="news">News</a></li>
+          <li><a href="#publications" data-s="publications">Publications</a></li>
+          <li><a href="#research-experience" data-s="research-experience">Research Experience</a></li>
+          <li><a href="#education" data-s="education">Education</a></li>
+          <li><a href="#projects" data-s="projects">Selected Projects</a></li>
         </ul>
-        <button class="tog" id="newstog" type="button" aria-expanded="false" aria-controls="newslist">+ show all 7</button>
-      </div>
-    </section>
+      </nav>
+    </div>
 
-    <section class="sec" id="research">
-      <h2>Research</h2>
-      <div>
-        <article class="item">
-          <div class="item-h"><h3>A Triangulate-and-Audit Framework for Measuring Depression-Indicative Self-Disclosure in YouTube Comments</h3><span class="st pub">accepted</span></div>
-          <p class="by"><span class="u">Rosemary Li</span>, Nuo Chen, Shenghan Gao, <a href="https://zhihanjiang.com/">Zhihan Jiang</a><br><i>WellComp @ UbiComp/ISWC 2026</i>, Shanghai</p>
-          <figure class="pfig"><img src="assets/img/triangulate-audit-framework.jpg" alt="The triangulate-and-audit framework: data and construct, multiple operationalizations, triangulation, audit, and insight"><figcaption>Fig. 1. The triangulate-and-audit framework.</figcaption></figure>
-          <p class="ab">Triangulated a lexical–syntactic rule, SBERT + HDBSCAN clustering, and two LLM annotators over 10,867 comments across 222 videos. Found strong inter-LLM agreement (κ = 0.87) and far higher disclosure in mental-health than music content (OR = 19.1).</p>
-          <p class="tags">nlp / mental health / llm annotation / human-computer interaction</p>
-        </article>
-      </div>
-    </section>
+    <footer class="foot">
+      <span>© 2026 Rosemary Li</span>
+      <button type="button" id="rerun">run intro again</button>
+    </footer>
 
-    <section class="sec" id="experience">
-      <h2>Experience</h2>
-      <div>
-        <div class="xrow"><span class="org">Columbia University, SEA Lab</span><span class="when">2026 – present</span></div>
-        <div class="xrow"><span class="org">MusicNBrain</span><span class="when">May – Aug 2026</span><span class="role">AI Engineer Intern, Real-Time Multimodal Music Tutor. Sunnyvale, CA</span>
-          <ul><li>Built a digital-human music tutor that joins Zoom and Meet calls, with live audio streaming, instrument detection, Gemini Live, and incremental lip-sync at 0.85–1.4 s feedback latency.</li>
-          <li>Optimized WeNet/UNet lip-sync on Apple Silicon with ONNX Runtime and CoreML, reaching 1.14× realtime at 43.7 ms/frame.</li></ul></div>
-        <div class="xrow"><span class="org">Huachuang Securities</span><span class="when">Jan – May 2025</span><span class="role">Industry Research Analyst, Sell-Side Research. Shanghai, China</span>
-          <ul><li>Sized the five-year polyimide market with time-series forecasting and regression; tracked competitor capacity and M&amp;A.</li>
-          <li>Wrote an investment analysis of Berkshire's Occidental position using shale-basin full-cycle cost curves and IEA data.</li></ul></div>
-        <div class="xrow"><span class="org">NYU Stern School of Business</span><span class="when">Sep – Dec 2023</span><span class="role">Research Assistant, SPUR Program with Prof. Raveesh Mayya. New York, NY</span>
-          <ul><li>Benchmarked human-proposed labels against open-source foundation models to assess the reliability of model-assisted tagging.</li></ul></div>
-        <div class="xrow"><span class="org">Earlier internships</span><span class="when">2020 – 2022</span>
-          <ul><li>Deloitte Consulting; CITIC Securities and Kaiyuan Securities (investment banking); ADIFF (data analytics).</li></ul></div>
-      </div>
-    </section>
-
-    <section class="sec" id="education">
-      <h2>Education</h2>
-      <div>
-        <div class="xrow"><span class="org">Columbia University</span><span class="when">Sep 2025 – Dec 2026</span><span class="role">M.S. in Computer and Information Science. GPA 4.08. Machine learning, NLP, data engineering</span></div>
-        <div class="xrow"><span class="org">New York University, Stern School of Business</span><span class="when">Sep 2019 – May 2024</span><span class="role">B.S. in Finance and Computing &amp; Data Science, Minor in Mathematics. Dean's List 2022–23</span></div>
-      </div>
-    </section>
-
-    <section class="sec" id="projects">
-      <h2>Projects</h2>
-      <div>
-        <article class="item">
-          <div class="item-h"><h3>SeismiCredit</h3><span class="st ong">ongoing</span></div>
-          <p class="by"><span class="u">Rosemary Li</span>, Nuo Chen, Shenghan Gao, Effie Zhang<br><i>Columbia Engineering Start Me Up Bootcamp</i></p>
-          <p class="ab">AI infrastructure for the credit market, starting with an AI-native workspace that moves credit analysts from fragmented documents and manual analysis toward structured, evidence-linked workflows. The same premise as the benchmark above, taken to the desk it is meant to serve.</p>
-          <p class="tags">llm agents / credit analysis / evidence linking / product</p>
-        </article>
-        <article class="item">
-          <div class="item-h"><h3>CivicShield</h3><span class="st">Jul 2026 &mdash; ETHGlobal NY</span></div>
-          <p class="ab">On-chain disaster relief: a supervisor-to-assessor agent workflow proposes disbursements, and a verified hazard signal — not a committee and not an unaccountable model — is what releases the money. A deterministic policy engine certifies every action against six rules, with trace-level daily limits that block split-payment attacks.</p>
-          <p class="lk"><a href="https://civic-shield-ai.vercel.app/">site</a></p>
-          <p class="tags">multi-agent / solidity / deterministic policy / blockchain</p>
-
-        </article>
-        <article class="item">
-          <div class="item-h"><h3>Student Signal Copilot</h3><span class="st pub">Jun 2026 &mdash; 3rd place, NYC Tech Week</span></div>
-          <p class="by"><span class="u">Rosemary Li</span>, Nuo Chen, Qijing (Kimberly) Huang<br><i>The City Hacks The State</i>, with CriticalAsset and AWS</p>
-          <p class="ab">Students are the first sensors in a building. A supervisor agent turns a messy one-sentence report — a hallway leak, a broken fixture, an unsafe stairwell — into an auditable <i>signal → evidence → action → verification</i> workflow, coordinating specialists for signal extraction, asset grounding, public-data enrichment, compliance review, confidence labelling, recommendation generation, and systemic pattern detection. Outputs are grounded in CriticalAsset building assets and NYC public data, humans keep control of real-world actions, and the agent trace is shown instead of a black-box answer. The workflow streams live over server-sent events and routes tasks across model tiers for cost and reliability; the loop closes by asking the student whether the issue was actually fixed.</p>
-          <p class="tags">multi-agent / civic infrastructure / human-in-the-loop / auditable traces</p>
-        </article>
-        <article class="item">
-          <div class="item-h"><h3>Ghost.Reviews</h3><span class="st">Jun 2026</span></div>
-          <p class="ab">Governable multi-agent equity research — &ldquo;initiating coverage you can defend.&rdquo; A planner/supervisor separates cited fact extraction from thesis formation, with a human approval gate, adversarial bear-case review, and deterministic DCF arithmetic. Every number is cited to the cell it came from, so a rating can be reconstructed line by line.</p>
-          <p class="lk"><a href="https://ghost-reviews-r5iy9ekn9-yl5848-7274s-projects.vercel.app/">site</a></p>
-          <p class="tags">llm agents / human-in-the-loop / finance / rag</p>
-
-        </article>
-        <article class="item">
-          <div class="item-h"><h3>LA World Cup Journey</h3><span class="st pub">May 2026 &mdash; 1st place</span></div>
-          <p class="by"><span class="u">Rosemary Li</span>, Meirui Yu, Zexuan Yu, Richard Zhang, Richelle L., Shenghan Gao</p>
-          <p class="ab">A full-stack platform for exploring World Cup matches and planning personal itineraries around the events, food, and experiences near each game. Built end to end: data pipeline, database, API, frontend.</p>
-          <p class="lk"><a href="https://la-world-cup-journey.vercel.app">site</a></p>
-          <p class="tags">postgresql / flask / react / full-stack</p>
-        </article>
-        <article class="item">
-          <div class="item-h"><h3>Signal2Action</h3><span class="st pub">Apr 2026 &mdash; 4th of 100+, Veris Agent Jam</span></div>
-          <p class="ab">An agentic consulting system that turns a messy, unstructured consulting process into structured insights, actionable deliverables, and decisions.</p>
-          <p class="lk"><a href="https://github.com/lvelf/Signal2Action">GitHub</a></p>
-          <p class="tags">llm agents / enterprise workflows</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="sec" id="skills">
-      <h2>Skills</h2>
-      <dl class="skills">
-        <dt>research methods</dt><dd>Measurement design, inter-annotator agreement (Cohen's κ), clustered statistical inference, LLM annotation evaluation, benchmark and evidence-annotation design, temporal-leakage testing, human coding, error analysis, Monte Carlo simulation, time series (ARIMA)</dd>
-        <dt>ml &amp; agents</dt><dd>PyTorch, ONNX Runtime, CoreML, multi-agent orchestration, MCP, deterministic verification, human-in-the-loop design</dd>
-        <dt>languages</dt><dd>Python, SQL, R, TypeScript, Solidity</dd>
-      </dl>
-    </section>
-  </main>
-
-  <footer class="foot">
-    <span>© 2026 Rosemary Li &middot; <a href="mailto:yl5848@columbia.edu">yl5848@columbia.edu</a></span>
-    <button type="button" id="rerun">run intro again</button>
-  </footer>
+  </div>
 </div>
 
 

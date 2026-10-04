@@ -1,9 +1,11 @@
 /* ============================================================
-   home.css — the site proper, revealed once the intro's OK is pressed.
+   home.css — the site proper, revealed once the intro is dismissed.
 
-   Light, single-column academic layout in the spirit of
-   zhihanjiang.com and lsl.zone: ~820px measure, sans-serif body at a
-   generous size and line height, sections split by hairline rules.
+   Layout follows kornilov.bio: a page ground in the intro's off-white,
+   a lighter card for the identity header, the body in a single reading column
+   with a sticky table of contents parked to its right, dated entries
+   as "when" on the left / title and organisation on the right, and
+   section headings set in plain title case rather than small caps.
    The intro stays dark; this file flips the page to light.
    ============================================================ */
 
@@ -12,16 +14,20 @@ body.home{
   overflow:auto;height:auto;
   /* light palette — declared here so both the page background and every
      descendant of .home-wrap inherit it */
-  --paper:#FFFFFF;
-  --ink:#1A1A1A;          /* body text */
-  --head:#111111;         /* headings */
-  --soft:#5C5C5C;         /* secondary text, dates, venues */
-  --faint:#8A8A8A;        /* tertiary: tags, captions */
-  --rule:#E4E4E4;         /* hairline dividers */
+  --page:#F3EEE6;         /* page ground — the intro's off-white (--beige,
+                             #E9E1D2) lifted about halfway to white, so the
+                             home view echoes the opening screen without
+                             going yellow under a full page of text */
+  --paper:#FFFDF8;        /* cards sitting on it, a warm near-white */
+  --ink:#211E18;          /* body text */
+  --head:#17140E;         /* headings */
+  --soft:#4F4839;         /* secondary text, organisations, venues */
+  --faint:#726A58;        /* tertiary: dates, tags, captions — kept this
+                             dark so it still clears 4.5:1 on the ground */
+  --rule:#E3DBCB;         /* hairline dividers and card borders */
   --accent:#0B5C7A;       /* links */
-  --accent-bg:#F3F7F9;    /* tinted surfaces */
   --sans:"IBM Plex Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-  background:var(--paper);
+  background:var(--page);
   color:var(--ink);
 }
 body.home .landing{display:none}
@@ -37,37 +43,51 @@ body.home .home-wrap{
 }
 @keyframes homein{from{opacity:0}to{opacity:1}}
 
-.home-wrap a{color:var(--accent);text-decoration:underline;text-decoration-color:#B9CFD8;text-underline-offset:3px;text-decoration-thickness:1px}
+.home-wrap a{color:var(--accent);text-decoration:underline;text-decoration-color:#A9C2CC;text-underline-offset:3px;text-decoration-thickness:1px}
 .home-wrap a:hover{text-decoration-color:var(--accent)}
 .home-wrap a:focus-visible,.home-wrap button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
 
-/* ---------------- top bar ---------------- */
-.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--rule);padding-top:env(safe-area-inset-top,0px);transition:box-shadow .2s}
-.top.solid{box-shadow:0 1px 10px rgba(0,0,0,.06)}
-.top-in{max-width:880px;margin:0 auto;padding:0 30px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.top-in .me{font-weight:600;font-size:16px;color:var(--head);text-decoration:none;white-space:nowrap}
-.top-in nav{display:flex;gap:4px;overflow-x:auto}
-.top-in nav a{font-size:14.5px;color:var(--soft);text-decoration:none;white-space:nowrap;padding:5px 10px;border-radius:4px}
-.top-in nav a:hover{color:var(--head);background:#F2F2F2}
-.top-in nav a.on{color:var(--accent);background:var(--accent-bg);font-weight:500}
+/* ---------------- page frame ----------------
+   One centred column holds the header card, the two-column body, and
+   the footer, so all three share a single left and right margin. */
+.page{max-width:1080px;margin:0 auto;padding:40px 30px 0}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:0 56px;align-items:start}
 
-.home-main{max-width:880px;margin:0 auto;padding:44px 30px 32px}
-
-/* ---------------- profile header ---------------- */
-.profile{display:flex;gap:34px;align-items:center;padding-bottom:40px}
-.avatar{width:160px;height:160px;flex-shrink:0;border-radius:50%;object-fit:cover;object-position:50% 18%;border:1px solid var(--rule)}
+/* ---------------- identity card ---------------- */
+.profile{
+  display:flex;gap:30px;align-items:center;
+  background:linear-gradient(135deg,var(--paper) 58%,#FBF6EB 100%);
+  border:1px solid var(--rule);border-radius:14px;
+  box-shadow:0 1px 2px rgba(74,60,38,.07);
+  padding:30px 34px;margin-bottom:46px;
+}
+.avatar{width:132px;height:132px;flex-shrink:0;border-radius:50%;object-fit:cover;object-position:50% 18%;border:1px solid var(--rule)}
 .profile-text{min-width:0}
-.profile h1{font-size:36px;line-height:1.15;font-weight:600;letter-spacing:-.015em;color:var(--head);margin:0 0 10px}
-.affil{font-size:17px;color:var(--ink);margin:0 0 4px}
-.interests{font-size:16px;color:var(--soft);margin:0 0 14px}
-.links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 20px;font-size:15.5px;color:var(--soft)}
+.profile h1{font-size:32px;line-height:1.15;font-weight:600;letter-spacing:-.015em;color:var(--head);margin:0 0 8px}
+/* home.js moves focus here when the home view appears so screen readers
+   announce it; the heading is not interactive, so it gets no focus ring */
+.profile h1[tabindex="-1"]:focus,.profile h1[tabindex="-1"]:focus-visible{outline:none}
+.affil{font-size:16.5px;color:var(--ink);margin:0 0 3px}
+.interests{font-size:15.5px;color:var(--soft);margin:0 0 12px}
+.affil:last-of-type{margin-bottom:12px}
+.links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px;font-size:15px;color:var(--soft)}
 
-/* ---------------- sections ---------------- */
-.sec{padding:34px 0;border-top:1px solid var(--rule)}
-.sec h2{font-size:14px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin:0 0 20px}
+/* ---------------- table of contents ---------------- */
+.toc{position:sticky;top:40px;border-left:1px solid var(--rule);padding-left:22px}
+.toc-h{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:0 0 10px}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:0 0 2px}
+.toc a{display:block;font-size:14.5px;line-height:1.5;padding:3px 0;color:var(--faint);text-decoration:none}
+.toc a:hover{color:var(--head)}
+.toc a.on{color:var(--accent);font-weight:600}
 
-.lead{font-size:19.5px;line-height:1.6;color:var(--head);margin:0 0 14px;max-width:64ch}
+/* ---------------- sections ----------------
+   Separated by whitespace rather than rules, as on the reference. */
+.sec{margin:0 0 52px}
+.sec:last-child{margin-bottom:0}
+.sec h2{font-size:21px;font-weight:600;letter-spacing:-.01em;color:var(--head);margin:0 0 18px}
+
+.lead{font-size:18.5px;line-height:1.65;color:var(--head);margin:0;max-width:64ch}
 .body-p{font-size:17px;line-height:1.75;color:var(--ink);margin:0 0 14px;max-width:70ch}
 
 /* ---------------- news ---------------- */
@@ -75,71 +95,87 @@ body.home .home-wrap{
 .news li{display:grid;grid-template-columns:104px minmax(0,1fr);gap:22px;padding:7px 0}
 .news .d{font-size:14.5px;color:var(--faint);padding-top:2px;white-space:nowrap;font-variant-numeric:tabular-nums}
 .news .t{font-size:16.5px;line-height:1.65;color:var(--ink)}
-.news li.more{display:none}
-.news.open li.more{display:grid}
-.tog{margin-top:14px;background:none;border:1px solid var(--rule);border-radius:4px;padding:5px 12px;font:inherit;font-size:14.5px;color:var(--soft);cursor:pointer}
-.tog:hover{color:var(--head);border-color:#CFCFCF;background:#FAFAFA}
 
-/* ---------------- research / project entries ---------------- */
-.item{padding:0 0 30px}
-.item:last-child{padding-bottom:0}
-.item-h{display:flex;justify-content:space-between;align-items:baseline;gap:20px}
-.item h3{font-size:19px;font-weight:600;line-height:1.4;color:var(--head);margin:0}
-.st{font-size:12.5px;color:var(--soft);white-space:nowrap;flex-shrink:0;border:1px solid var(--rule);border-radius:3px;padding:2px 8px;line-height:1.5}
-.st.pub{color:#1E6B45;border-color:#BFE0CE;background:#F1F9F4}
-.st.ong{color:#8A5A12;border-color:#E8D6B0;background:#FCF7EC}
+/* ---------------- research / project cards ----------------
+   The reference cards its publication list and leaves dated entries
+   plain; this mirrors that split. */
+.item{
+  background:var(--paper);border:1px solid var(--rule);border-radius:12px;
+  box-shadow:0 1px 2px rgba(74,60,38,.05);
+  padding:20px 24px;margin:0 0 14px;
+}
+.item:last-child{margin-bottom:0}
+
+/* Project covers: a screenshot of the project's own front page, bled to
+   the card edges and linked to the project. The negative margin cancels
+   the card padding, so the width has to be grown back by the same amount.
+   Radius is 11px, not 12px, to sit inside the card's 1px border. */
+.cover-link{display:block;width:calc(100% + 48px);margin:-20px -24px 18px;
+  overflow:hidden;border-radius:11px 11px 0 0;border-bottom:1px solid var(--rule);
+  text-decoration:none;background:#EDE7DC}
+/* height:auto is load-bearing: the width/height attributes on the <img>
+   would otherwise pin the height and aspect-ratio would never apply,
+   cropping the sides off every cover */
+.cover{display:block;width:100%;height:auto;aspect-ratio:1800/692;object-fit:cover;
+  transition:transform .4s ease}
+.cover-link:hover .cover{transform:scale(1.02)}
+
+.item h3{font-size:18.5px;font-weight:600;line-height:1.4;color:var(--head);margin:0}
+.sub{font-size:15.5px;color:var(--soft);margin:5px 0 0;line-height:1.55}
 .by{font-size:15.5px;color:var(--soft);margin:7px 0 0;line-height:1.6}
 .by .u{color:var(--head);font-weight:600}
 .by i{font-style:italic}
 .ab{font-size:16.5px;line-height:1.72;color:var(--ink);margin:10px 0 0;max-width:72ch}
 .lk{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14.5px;margin:10px 0 0}
-.tags{font-size:14px;color:var(--faint);margin:10px 0 0}
 
 .pfig{margin:16px 0 0;max-width:640px}
-.pfig img{display:block;width:100%;background:#fff;border:1px solid var(--rule);border-radius:3px}
+.pfig img{display:block;width:100%;background:#fff;border:1px solid var(--rule);border-radius:4px}
 .pfig figcaption{font-size:13.5px;color:var(--faint);margin-top:7px}
 
-/* ---------------- experience / education rows ---------------- */
-.xrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 24px;padding:0 0 24px}
+/* ---------------- experience / education rows ----------------
+   Date in a fixed left column, role bold on the right with the
+   organisation beneath it. */
+.xrow{display:grid;grid-template-columns:148px minmax(0,1fr);gap:0 28px;padding:0 0 28px}
 .xrow:last-child{padding-bottom:0}
-.xrow .org{font-size:17.5px;font-weight:600;color:var(--head)}
-.xrow .when{font-size:14.5px;color:var(--faint);white-space:nowrap;padding-top:4px;text-align:right;font-variant-numeric:tabular-nums}
-.xrow .role{grid-column:1/-1;font-size:16px;color:var(--soft)}
-.xrow ul{grid-column:1/-1;margin:8px 0 0;padding:0;list-style:none}
+.xrow-plain{grid-template-columns:minmax(0,1fr)}
+.xrow .when{font-size:14.5px;color:var(--faint);padding-top:5px;font-variant-numeric:tabular-nums}
+.xbody{min-width:0}
+.xtitle{font-size:17.5px;font-weight:600;line-height:1.45;color:var(--head);margin:0}
+.xorg{font-size:15.5px;color:var(--soft);margin:2px 0 0;line-height:1.55}
+.xdet{font-size:15.5px;color:var(--soft);margin:3px 0 0;line-height:1.55}
+.xrow ul{margin:8px 0 0;padding:0;list-style:none}
 .xrow li{font-size:16.5px;line-height:1.7;color:var(--ink);padding-left:18px;position:relative;margin-top:5px;max-width:72ch}
 .xrow li::before{content:"–";position:absolute;left:0;color:var(--faint)}
 
-/* ---------------- skills ---------------- */
-.skills{margin:0;display:grid;grid-template-columns:170px 1fr;gap:16px 24px}
-.skills dt{font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);padding-top:4px}
-.skills dd{margin:0;font-size:16.5px;line-height:1.7;color:var(--ink)}
-
 /* ---------------- footer ---------------- */
-.foot{max-width:880px;margin:0 auto;padding:22px 30px 44px;border-top:1px solid var(--rule);
+.foot{margin:56px 0 0;padding:20px 0 44px;border-top:1px solid var(--rule);
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14.5px;color:var(--faint)}
 .foot button{background:none;border:0;padding:0;font:inherit;color:var(--faint);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .foot button:hover{color:var(--head)}
 
-/* ---------------- small screens ---------------- */
+/* ---------------- narrow screens ----------------
+   Below 900px the contents column has nowhere to sit, so it steps out
+   and the body takes the full width. */
+@media (max-width:900px){
+  .cols{grid-template-columns:1fr}
+  .toc{display:none}
+}
 @media (max-width:760px){
   body.home .home-wrap{font-size:16.5px}
-  .top-in{padding:0 18px;height:52px}
-  .top-in .me{font-size:15px}
-  .top-in nav a{font-size:14px;padding:5px 7px}
-  .top-in nav a.hide-s{display:none}
-  .home-main{padding:32px 18px 24px}
-  .profile{flex-direction:column;align-items:flex-start;gap:20px;padding-bottom:32px}
+  .page{padding:24px 18px 0}
+  .profile{flex-direction:column;align-items:flex-start;gap:20px;padding:24px 22px;margin-bottom:36px}
   .avatar{width:112px;height:112px}
-  .profile h1{font-size:30px}
-  .sec{padding:28px 0}
+  .profile h1{font-size:28px}
+  .sec{margin-bottom:42px}
+  .sec h2{font-size:19.5px}
   .news li{grid-template-columns:1fr;gap:0;padding:9px 0}
   .news .d{padding-top:0}
-  .skills{grid-template-columns:1fr;gap:4px}
-  .skills dd{margin-bottom:14px}
-  .item-h{flex-direction:column;align-items:flex-start;gap:8px}
+  .item{padding:18px 18px}
+  .cover-link{width:calc(100% + 36px);margin:-18px -18px 15px}
   .xrow{grid-template-columns:1fr}
-  .xrow .when{text-align:left;padding-top:2px}
-  .foot{padding:20px 18px 36px}
+  .xrow .when{padding-top:0;margin-bottom:2px}
+  .foot{margin-top:40px;padding:18px 0 36px}
 }
 
-@media (prefers-reduced-motion:reduce){body.home .home-wrap{animation:none}}
+@media (prefers-reduced-motion:reduce){body.home .home-wrap{animation:none}
+  .cover,.cover-link:hover .cover{transition:none;transform:none}}
