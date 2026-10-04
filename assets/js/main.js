@@ -1,21 +1,18 @@
 /* ============================================================
    main.js — page wiring for index.html.
 
-   landing  ->  typewriter dialog  ->  home view
-   Arriving at #home directly (a bookmark, or a reload after OK)
-   skips straight past the intro.
+   landing  <->  home view
+   Arriving at #home directly (a bookmark, or a reload after entering)
+   skips the landing; the name in the top-left goes back to it.
    ============================================================ */
 (function () {
-  var ok = document.getElementById('ok');
+  var landing, home;
 
-  var typewriter = RL.typewriter.init();
-  var home = RL.home.init({ stopIntro: typewriter.stop });
-  var landing = RL.landing.init({ onEnter: typewriter.play });
-
-  ok.addEventListener('click', function (e) { e.preventDefault(); home.show(); });
+  home = RL.home.init({ onBackToIntro: function () { landing.reset(); } });
+  landing = RL.landing.init({ onEnter: function () { home.show(); } });
 
   function start() {
-    if (location.hash === '#home') { home.show(true); return; }
+    if (location.hash === '#home') { home.show(); return; }
     landing.start();
   }
   if (document.fonts && document.fonts.load) {

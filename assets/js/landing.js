@@ -6,7 +6,7 @@
    and is shoved around by the pointer. Clicking (or Enter/Space) blows
    the letters outward and hands over to whatever runs next.
 
-   RL.landing.init(options) -> { start }
+   RL.landing.init(options) -> { start, reset }
      options.onEnter  called once the landing has faded out
    ============================================================ */
 (function () {
@@ -100,7 +100,13 @@
           P.forEach(function (p) { var dx = p.x - cx, dy = p.y - cy, d = Math.sqrt(dx * dx + dy * dy) || 1, s = 3 + Math.random() * 6; p.vx = dx / d * s; p.vy = dy / d * s; });
         }
         landing.classList.add('gone');
-        setTimeout(function () { landing.style.display = 'none'; onEnter(); }, reduce ? 50 : 650);
+        setTimeout(function () {
+          landing.style.display = 'none';
+          // stop drawing: without this the canvas keeps animating behind the
+          // hidden element for the rest of the session
+          if (raf) { cancelAnimationFrame(raf); raf = null; }
+          onEnter();
+        }, reduce ? 50 : 650);
       }
       function pt(e) { mouse.x = e.clientX; mouse.y = e.clientY; mouse.on = true; }
       landing.addEventListener('pointermove', pt);
@@ -113,10 +119,20 @@
       });
       var rt; window.addEventListener('resize', function () { if (done) return; clearTimeout(rt); rt = setTimeout(build, 150); });
 
+      function start() {
+        build();
+        if (reduce) { P.forEach(function (p) { p.x = p.hx; p.y = p.hy; }); }
+      }
+
       return {
-        start: function () {
-          build();
-          if (reduce) { P.forEach(function (p) { p.x = p.hx; p.y = p.hy; }); }
+        start: start,
+        // Come back from the home view. The scattered letters are still in P,
+        // so rebuilding from where they landed flies them back into the name.
+        reset: function () {
+          done = false; mode = 'live'; exitT = 0;
+          landing.style.display = '';
+          landing.classList.remove('gone');
+          start();   // build() restarts the animation loop
         }
       };
     }

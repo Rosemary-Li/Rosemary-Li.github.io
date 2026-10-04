@@ -7,74 +7,55 @@
 <meta name="description" content="Hello, World! I am Rosemary Li. Welcome to my website.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/base.css">
-<link rel="stylesheet" href="assets/css/intro.css">
+<link rel="stylesheet" href="assets/css/landing.css">
 <link rel="stylesheet" href="assets/css/home.css">
 </head>
 <body>
 <section class="landing" id="landing" aria-label="Rosemary Li">
   <h1 class="sr">Rosemary Li</h1>
+  <p class="sr">Hello, World! I am Rosemary Li. Welcome to my website.</p>
   <canvas id="dots" aria-hidden="true"></canvas>
   <button class="enter" id="enter" type="button">[ click anywhere to enter<span class="c">_</span> ]</button>
 </section>
 
-<main class="stage">
-  <div class="win" id="win" role="dialog" aria-labelledby="wtitle">
-    <div class="bar"><span id="wtitle">Input Window Properties</span><span class="x" aria-hidden="true">✕</span></div>
-    <div class="body">
-      <fieldset>
-        <legend>Screen Text</legend>
-        <p class="sr">Hello, World! I am Rosemary Li. Welcome to my website.</p>
-        <div class="field" id="field" aria-hidden="true"><span id="out"></span><span class="caret" id="caret"></span></div>
-        <div class="meta"><span>Object ID Label: RosemaryLi1</span><span>Keypad Size: Medium</span></div>
-      </fieldset>
-      <div class="row">
-        <span class="status" id="status" aria-live="polite">Ready.</span>
-        <div class="btns">
-          <a class="btn ok" id="ok" href="#home">OK</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
 
 <div class="home-wrap" id="home">
   <header class="top" id="top">
     <div class="top-in">
-      <a class="me" href="#hero">Rosemary Li</a>
+      <a class="me" id="tointro" href="./">Rosemary Li</a>
       <nav aria-label="Sections">
-        <a href="#hero" data-s="hero">Home</a>
         <a href="#about" data-s="about">About</a>
-        <a class="hide-s" href="#news" data-s="news">News</a>
+        <a href="#news" data-s="news">News</a>
         <a href="#research" data-s="research">Research</a>
         <a class="hide-s" href="#experience" data-s="experience">Experience</a>
+        <a class="hide-s" href="#education" data-s="education">Education</a>
         <a class="hide-s" href="#projects" data-s="projects">Projects</a>
-        <a href="mailto:rosemary.liyanxi@gmail.com">Contact</a>
       </nav>
     </div>
   </header>
 
-  <section class="cover" id="hero" aria-label="Rosemary Li">
-    <div class="cover-img"><img src="assets/img/portrait.jpg" alt="Portrait of Rosemary Li"></div>
-    <div class="cover-text">
-      <h1 class="cover-name">Rosemary Li<span class="cur" aria-hidden="true"></span></h1>
-      <p class="cover-sub">M.S. Applied Analytics at Columbia University<br>LLM agent evaluation / multi-agent systems / computational social science</p>
-    </div>
-    <a class="cover-down" href="#about">Scroll<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
-  </section>
-
   <main class="home-main">
+    <section class="profile" id="hero">
+      <img class="avatar" src="assets/img/portrait.jpg" alt="Portrait of Rosemary Li" width="160" height="160">
+      <div class="profile-text">
+        <h1>Rosemary Li</h1>
+        <p class="affil">M.S. Computer and Information Science, <a href="https://www.columbia.edu/">Columbia University</a></p>
+        <p class="interests">LLM agent evaluation &middot; multi-agent systems &middot; human-computer interaction</p>
+        <ul class="links">
+          <li><a href="mailto:yl5848@columbia.edu">yl5848@columbia.edu</a></li>
+          <li><a href="mailto:rosemary.liyanxi@gmail.com">rosemary.liyanxi@gmail.com</a></li>
+          <li><a href="https://github.com/Rosemary-Li">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/rosemary-li">LinkedIn</a></li>
+        </ul>
+      </div>
+    </section>
+
     <section class="sec" id="about">
       <h2>About</h2>
       <div>
-        <p class="lead">I&rsquo;m a researcher and engineer working on LLM agent evaluation, multi-agent systems, and computational social science.</p>
-        <p class="body-p">My work takes measurement seriously: I treat cross-method disagreement as evidence rather than noise. I&rsquo;m currently building a benchmark for evidence-grounded, point-in-time credit reasoning in LLM agents, collaborating on agent economies and market simulation with an incoming Columbia EE faculty member, and drawing on NSF I-Corps interviews with credit analysts to keep the evaluation design close to how the work is actually done.</p>
-        <ul class="contact">
-          <li><a href="mailto:rosemary.liyanxi@gmail.com">rosemary.liyanxi@gmail.com</a></li>
-
-          <li class="plain">New York, NY</li>
-        </ul>
+        <p class="lead">I&rsquo;m a researcher and engineer working on LLM agent evaluation, multi-agent systems, and human-computer interaction.</p>
       </div>
     </section>
 
@@ -82,16 +63,15 @@
       <h2>News</h2>
       <div>
         <ul class="news" id="newslist">
-          <li><span class="d">Oct 2026</span><span class="t">Scheduled to present our paper at the WellComp Workshop @ UbiComp/ISWC 2026 in Shanghai.</span></li>
-          <li><span class="d">Sep 2026</span><span class="t">Started a benchmark on evidence-grounded, point-in-time credit reasoning for LLM agents, with practitioner expert review.</span></li>
-          <li><span class="d">Sep 2026</span><span class="t">Began a collaboration with incoming Columbia EE faculty on LLM agent economies and market simulation.</span></li>
-          <li class="more"><span class="d">Aug 2026</span><span class="t">Paper on depression-indicative self-disclosure in YouTube comments accepted at WellComp @ UbiComp/ISWC 2026.</span></li>
-          <li class="more"><span class="d">Jul 2026</span><span class="t">Won ETHGlobal New York 2026 with CivicShield, certified-trace agents for on-chain disaster relief.</span></li>
+          <li><span class="d">Aug 2026</span><span class="t">Paper on depression-indicative self-disclosure in YouTube comments accepted at WellComp @ UbiComp/ISWC 2026.</span></li>
+          <li><span class="d">Jul 2026</span><span class="t">Built CivicShield at ETHGlobal New York 2026: certified-trace agents for on-chain disaster relief.</span></li>
+          <li><span class="d">Jun 2026</span><span class="t">Placed 3rd at The City Hacks The State, NYC Tech Week 2026, with Student Signal Copilot.</span></li>
           <li class="more"><span class="d">Jun 2026</span><span class="t">Launched Ghost.Reviews, a governable multi-agent equity research system with human approval gates.</span></li>
           <li class="more"><span class="d">May 2026</span><span class="t">Started as an AI Engineer intern at MusicNBrain, building a real-time multimodal music tutor.</span></li>
-          <li class="more"><span class="d">Apr 2026</span><span class="t">Completed customer discovery interviews through NSF I-Corps with credit-market practitioners.</span></li>
+          <li class="more"><span class="d">May 2026</span><span class="t">Won 1st place with LA World Cup Journey, a full-stack match and itinerary planner.</span></li>
+          <li class="more"><span class="d">Apr 2026</span><span class="t">Placed 4th of 100+ at the Veris Enterprise Agent Jam with Signal2Action.</span></li>
         </ul>
-        <button class="tog" id="newstog" type="button" aria-expanded="false" aria-controls="newslist">+ show all 8</button>
+        <button class="tog" id="newstog" type="button" aria-expanded="false" aria-controls="newslist">+ show all 7</button>
       </div>
     </section>
 
@@ -103,26 +83,7 @@
           <p class="by"><span class="u">Rosemary Li</span>, Nuo Chen, Shenghan Gao, <a href="https://zhihanjiang.com/">Zhihan Jiang</a><br><i>WellComp @ UbiComp/ISWC 2026</i>, Shanghai</p>
           <figure class="pfig"><img src="assets/img/triangulate-audit-framework.jpg" alt="The triangulate-and-audit framework: data and construct, multiple operationalizations, triangulation, audit, and insight"><figcaption>Fig. 1. The triangulate-and-audit framework.</figcaption></figure>
           <p class="ab">Triangulated a lexical–syntactic rule, SBERT + HDBSCAN clustering, and two LLM annotators over 10,867 comments across 222 videos. Found strong inter-LLM agreement (κ = 0.87) and far higher disclosure in mental-health than music content (OR = 19.1).</p>
-          <p class="tags">nlp / mental health / llm annotation / computational social science</p>
-
-        </article>
-        <article class="item">
-          <div class="item-h"><h3>Can LLM Agents Maintain Evidence-Grounded, Point-in-Time Credit States Across Corporate Disclosures?</h3><span class="st ong">ongoing</span></div>
-          <p class="by"><span class="u">Rosemary Li</span>, with incoming Columbia EE faculty</p>
-          <p class="ab">A benchmark for whether LLM agents can carry a company&rsquo;s credit state &mdash; capital structure, liquidity, credit metrics, maturity wall, material change &mdash; across successive disclosures, grounding every claim in the filing that supports it and respecting what was knowable at each point in time. Built on a credit-specific ontology rather than generic financial QA, with evidence annotation under practitioner review, point-in-time data boundaries and temporal-leakage tests, and persistent agent memory as an ablation variable. First stage of a four-part program: benchmark &rarr; credit state model &rarr; credit research agent &rarr; multi-agent credit market simulation.</p>
-          <p class="tags">llm agents / benchmark design / credit analysis / evidence grounding / evaluation</p>
-        </article>
-        <article class="item">
-          <div class="item-h"><h3>LLM Agent Economies and Market Simulation</h3><span class="st ong">ongoing</span></div>
-          <p class="by"><span class="u">Rosemary Li</span>, with incoming Columbia EE faculty</p>
-          <p class="ab">Investigating whether LLM-agent market simulators reproduce real-world phenomena. Replicating market-based agent-evolution frameworks; identified a birth-luck variance evaluation gap in auction, rent, and bankruptcy dynamics over prompt populations. Existing equity simulators evolve agents in prompt space alone, without endogenous price formation or strategic behaviour such as spoofing and collusion &mdash; the gap that motivates the credit-side work above.</p>
-          <p class="tags">llm agents / market simulation / evaluation</p>
-        </article>
-        <article class="item">
-          <div class="item-h"><h3>Field Study: How Credit Analysts Verify Model Outputs</h3><span class="st ong">ongoing</span></div>
-          <p class="by"><span class="u">Rosemary Li</span><br><i>NSF I-Corps</i></p>
-          <p class="ab">Customer discovery interviews with credit-market practitioners explored how analysts check model outputs against primary-source evidence. This work motivates evaluation of evidence grounding and time-sensitive information.</p>
-          <p class="tags">human-centered ai / evaluation / finance / field study</p>
+          <p class="tags">nlp / mental health / llm annotation / human-computer interaction</p>
         </article>
       </div>
     </section>
@@ -147,8 +108,8 @@
     <section class="sec" id="education">
       <h2>Education</h2>
       <div>
-        <div class="xrow"><span class="org">Columbia University</span><span class="when">Sep 2025 – Dec 2026</span><span class="role">M.S. in Applied Analytics. Machine learning, NLP, data engineering</span></div>
-        <div class="xrow"><span class="org">New York University, Stern School of Business</span><span class="when">Sep 2019 – May 2024</span><span class="role">B.S. in Finance and Computing &amp; Data Science, Minor in Mathematics. GPA 4.08; Dean's List 2022–23</span></div>
+        <div class="xrow"><span class="org">Columbia University</span><span class="when">Sep 2025 – Dec 2026</span><span class="role">M.S. in Computer and Information Science. GPA 4.08. Machine learning, NLP, data engineering</span></div>
+        <div class="xrow"><span class="org">New York University, Stern School of Business</span><span class="when">Sep 2019 – May 2024</span><span class="role">B.S. in Finance and Computing &amp; Data Science, Minor in Mathematics. Dean's List 2022–23</span></div>
       </div>
     </section>
 
@@ -156,16 +117,43 @@
       <h2>Projects</h2>
       <div>
         <article class="item">
-          <div class="item-h"><h3>CivicShield</h3><span class="st">ETHGlobal NY 2026, winner</span></div>
-          <p class="ab">A supervisor-to-assessor agent workflow that proposes disaster-relief disbursements. A deterministic policy engine certifies every action against six rules, with trace-level daily limits that block split-payment attacks.</p>
+          <div class="item-h"><h3>SeismiCredit</h3><span class="st ong">ongoing</span></div>
+          <p class="by"><span class="u">Rosemary Li</span>, Nuo Chen, Shenghan Gao, Effie Zhang<br><i>Columbia Engineering Start Me Up Bootcamp</i></p>
+          <p class="ab">AI infrastructure for the credit market, starting with an AI-native workspace that moves credit analysts from fragmented documents and manual analysis toward structured, evidence-linked workflows. The same premise as the benchmark above, taken to the desk it is meant to serve.</p>
+          <p class="tags">llm agents / credit analysis / evidence linking / product</p>
+        </article>
+        <article class="item">
+          <div class="item-h"><h3>CivicShield</h3><span class="st">Jul 2026 &mdash; ETHGlobal NY</span></div>
+          <p class="ab">On-chain disaster relief: a supervisor-to-assessor agent workflow proposes disbursements, and a verified hazard signal — not a committee and not an unaccountable model — is what releases the money. A deterministic policy engine certifies every action against six rules, with trace-level daily limits that block split-payment attacks.</p>
+          <p class="lk"><a href="https://civic-shield-ai.vercel.app/">site</a></p>
           <p class="tags">multi-agent / solidity / deterministic policy / blockchain</p>
-          
+
+        </article>
+        <article class="item">
+          <div class="item-h"><h3>Student Signal Copilot</h3><span class="st pub">Jun 2026 &mdash; 3rd place, NYC Tech Week</span></div>
+          <p class="by"><span class="u">Rosemary Li</span>, Nuo Chen, Qijing (Kimberly) Huang<br><i>The City Hacks The State</i>, with CriticalAsset and AWS</p>
+          <p class="ab">Students are the first sensors in a building. A supervisor agent turns a messy one-sentence report — a hallway leak, a broken fixture, an unsafe stairwell — into an auditable <i>signal → evidence → action → verification</i> workflow, coordinating specialists for signal extraction, asset grounding, public-data enrichment, compliance review, confidence labelling, recommendation generation, and systemic pattern detection. Outputs are grounded in CriticalAsset building assets and NYC public data, humans keep control of real-world actions, and the agent trace is shown instead of a black-box answer. The workflow streams live over server-sent events and routes tasks across model tiers for cost and reliability; the loop closes by asking the student whether the issue was actually fixed.</p>
+          <p class="tags">multi-agent / civic infrastructure / human-in-the-loop / auditable traces</p>
         </article>
         <article class="item">
           <div class="item-h"><h3>Ghost.Reviews</h3><span class="st">Jun 2026</span></div>
-          <p class="ab">Governable multi-agent equity research. A planner/supervisor separates cited fact extraction from thesis formation, with a human approval gate, adversarial bear-case review, and deterministic DCF calculations.</p>
+          <p class="ab">Governable multi-agent equity research — &ldquo;initiating coverage you can defend.&rdquo; A planner/supervisor separates cited fact extraction from thesis formation, with a human approval gate, adversarial bear-case review, and deterministic DCF arithmetic. Every number is cited to the cell it came from, so a rating can be reconstructed line by line.</p>
+          <p class="lk"><a href="https://ghost-reviews-r5iy9ekn9-yl5848-7274s-projects.vercel.app/">site</a></p>
           <p class="tags">llm agents / human-in-the-loop / finance / rag</p>
-          
+
+        </article>
+        <article class="item">
+          <div class="item-h"><h3>LA World Cup Journey</h3><span class="st pub">May 2026 &mdash; 1st place</span></div>
+          <p class="by"><span class="u">Rosemary Li</span>, Meirui Yu, Zexuan Yu, Richard Zhang, Richelle L., Shenghan Gao</p>
+          <p class="ab">A full-stack platform for exploring World Cup matches and planning personal itineraries around the events, food, and experiences near each game. Built end to end: data pipeline, database, API, frontend.</p>
+          <p class="lk"><a href="https://la-world-cup-journey.vercel.app">site</a></p>
+          <p class="tags">postgresql / flask / react / full-stack</p>
+        </article>
+        <article class="item">
+          <div class="item-h"><h3>Signal2Action</h3><span class="st pub">Apr 2026 &mdash; 4th of 100+, Veris Agent Jam</span></div>
+          <p class="ab">An agentic consulting system that turns a messy, unstructured consulting process into structured insights, actionable deliverables, and decisions.</p>
+          <p class="lk"><a href="https://github.com/lvelf/Signal2Action">GitHub</a></p>
+          <p class="tags">llm agents / enterprise workflows</p>
         </article>
       </div>
     </section>
@@ -181,17 +169,12 @@
   </main>
 
   <footer class="foot">
-    <span>© 2026 Rosemary Li, New York</span>
+    <span>© 2026 Rosemary Li &middot; <a href="mailto:yl5848@columbia.edu">yl5848@columbia.edu</a></span>
     <button type="button" id="rerun">run intro again</button>
   </footer>
 </div>
 
-<div class="ptr" id="ptr" aria-hidden="true">
-  <svg class="arrow" viewBox="0 0 22 22"><path d="M1 1 L1 17 L5.2 13.2 L8 19.6 L10.8 18.4 L8.1 12.2 L13.6 12.2 Z" fill="#F2F2F2" stroke="#111" stroke-width="1.2" stroke-linejoin="round"/></svg>
-  <svg class="beam" viewBox="0 0 12 22"><path d="M3 1h2.5M6.5 1H9M6 1v20M3 21h2.5M6.5 21H9" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/><path d="M3 1h2.5M6.5 1H9M6 1v20M3 21h2.5M6.5 21H9" fill="none" stroke="#F2F2F2" stroke-width="1.3" stroke-linecap="round"/></svg>
-</div>
 
-<script src="assets/js/typewriter.js"></script>
 <script src="assets/js/landing.js"></script>
 <script src="assets/js/home.js"></script>
 <script src="assets/js/main.js"></script>
