@@ -10,8 +10,3 @@
 .landing.gone{opacity:0;pointer-events:none}
 .landing canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:crosshair}
 
-.enter{position:absolute;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);
-  font:inherit;font-size:12px;letter-spacing:.08em;color:var(--beige);opacity:.55;background:none;border:0;padding:12px 16px;cursor:pointer;white-space:nowrap}
-.enter:hover{opacity:1}
-.enter:focus-visible{outline:1px solid var(--beige);outline-offset:2px}
-.enter .c{animation:blink 1.06s steps(1) infinite}
